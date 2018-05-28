@@ -1,0 +1,11 @@
+{% extends 'main/main.html' %}
+{% block titulo %}
+<title>Agregar ficha</title>
+{% endblock %}
+{% block contenido %}
+	<form method="POST">
+		{% csrf_token %}
+			{{ formulario_persona_ficha.as_p }}
+			<button type="submit">Asignar</button>
+	</form>
+{% endblock %}

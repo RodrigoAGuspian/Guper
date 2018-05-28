@@ -1,0 +1,19 @@
+{% extends 'main/main.html' %}
+{% block titulo %}Registrar_aprendiz{% endblock %}
+{% block contenido %}
+	
+	<form action="" method="POST" enctype="multipart/form-data">
+
+	  	<h1>Agregar Aprendiz</h1>
+	    {% csrf_token %}
+	    {{ formulario2.as_p }}
+	    {{ formulario.as_p }}
+	    {{ formulario3.as_p }}
+	    {{ formulario4.as_p }}
+
+	 	<input type="submit" value="Guardar" />
+	</form>
+
+	<a href="{% url 'url_agregar_rol' %}">{{msj}}</a>
+
+{% endblock %}
