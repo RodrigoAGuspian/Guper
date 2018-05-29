@@ -1,0 +1,9 @@
+{% extends 'main/main.html' %}
+{% block titulo %}Agregar ficha{% endblock %}
+{% block contenido %}
+	<form method="POST">
+		{% csrf_token %}
+		{{ formulario_ficha.as_p }}
+		<button type="submit">Agregar</button>
+	</form>
+{% endblock %}

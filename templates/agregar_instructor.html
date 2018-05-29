@@ -1,0 +1,18 @@
+{% extends 'main/main.html' %}
+{% block titulo %}
+registar
+{% endblock %}
+
+
+{% block contenido %}
+	<h3>registar</h3>
+
+	<form action="" method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{ formulario2.as_p }}
+		{{ formulario.as_p }}
+		<input type="submit" value="Registar">	
+	</form>
+
+	
+{% endblock %}

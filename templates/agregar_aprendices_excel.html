@@ -1,0 +1,11 @@
+{% extends 'main/main.html' %}
+{% block titulo %}Cargar Excel{% endblock %}
+{% block contenido %}
+	
+	<form action="" method="POST">
+		{% csrf_token %}
+	    {{ form.as_p }}
+	    <input type="submit" value="Continuar" />
+	</form>
+
+{% endblock %}

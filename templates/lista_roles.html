@@ -1,0 +1,21 @@
+{% extends 'main/main.html' %}
+{% block titulo %}Roles{% endblock %}
+{% block contenido %}
+<!--tabla para mostrar los roles-->
+	<table>
+		<tr>
+			<th>Rol</th>
+			<th>Editar</th>
+			<th>Eliminar</th>
+		</tr>
+	<!--inicio del ciclo-->
+		{%for r in rol%}
+		<tr>
+			<td>{{r.rol}}</td>
+			<td><a href="{%url 'url_editar_rol' id_rol=r.id %}">editar</a></td><!--enlace para editar un rol-->
+			<td><a href="{%url 'url_eliminar_rol' id_rol=r.id %}">eliminar</a></td>	<!--enlace para eliminar un rol-->
+		</tr>	
+		{%endfor%}
+	</table>
+	<!--fin ciclo-->
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'main/main.html '%}
+{% block titulo %}Agregar Administrador{% endblock %}
+{% block contenido %}
+<form action="" method="POST" enctype="multipart/form-data">
+	<h2>Agregar administrador</h2>
+	{% csrf_token %}
+	{{form.as_p}}
+	{{form2.as_p}}
+	<input type="submit" value="Guardar">
+</form>
+{% endblock %}
