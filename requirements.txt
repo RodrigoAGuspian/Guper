@@ -5,3 +5,4 @@ djangorestframework==3.8.2
 oauthlib==2.1.0
 openpyxl==2.5.3
 Pillow==5.1.0
+gunicorn==19.8.1
