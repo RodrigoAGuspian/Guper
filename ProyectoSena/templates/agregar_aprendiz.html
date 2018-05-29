@@ -8,12 +8,8 @@
 	    {% csrf_token %}
 	    {{ formulario2.as_p }}
 	    {{ formulario.as_p }}
-	    {{ formulario3.as_p }}
-	    {{ formulario4.as_p }}
 
-	 	<input type="submit" value="Guardar" />
+	    <input type="submit" value="Guardar" />
 	</form>
-
-	<a href="{% url 'url_agregar_rol' %}">{{msj}}</a>
 
 {% endblock %}

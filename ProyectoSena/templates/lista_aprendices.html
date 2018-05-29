@@ -3,7 +3,6 @@
 {% block contenido %}
   <table>
 		<tr>
-      <th></th>
     	<th>Identida</th>
    		<th>Nombre</th>
    		<th>Apellido</th>
@@ -13,18 +12,13 @@
    	</tr>
 	  {% for l in rp %}
     <tr>
-      <td>{{l.persona.id}}</td>
 			<td>{{l.persona.documentoIdentidad}}</td>
 			<td>{{l.persona.nombres}}</td>
 			<td>{{l.persona.apellidos}}</td>
 			<td>{{l.persona.usuario.email}}</td>
       <td><a href="{% url 'url_editar_aprendiz' id_aprendiz=l.persona.id %}">editar</a></td>
-      <td><a href="{% url 'url_eliminar_aprendiz' id_aprendiz=l.persona.id %}">eliminar</a></td>
+      <td><a href="{% url 'url_eliminar_aprendiz' id_aprendiz=l.id %}">eliminar</a></td>
     </tr>
     {% endfor %}
   </table>
-
-  <a href="{% url 'url_agregar_aprendiz' %}">{{msj}}</a>
-  {{msj2}}
-
 {% endblock %}

@@ -5,18 +5,17 @@
 	<table>
 		<tr>
 			<th>Programa</th>
-			<th>Abreviacion</th>
+			<th>Codigo</th>
 			<th>Editar</th>
 			<th>Eliminar</th>
 		</tr>
 		{%for i in programa %}
 		<tr>	
 			<td>{{ i.nombre }}</td>
-			<td>{{ i.abreviacion }}</td>
+			<td>{{ i.codigoPrograma }}</td>
 			<td><a href="{% url 'url_editar_programa' id_programa=i.id %}">Editar</a></td>
 			<td><a href="{% url 'url_eliminar_programa' id_programa=i.id %}">Eliminar</a></td>
 		</tr>
 		{% endfor %}
 	</table>
-	<a href="{% url 'url_agregar_programa' %}">{{msj}}</a>
 {% endblock %}

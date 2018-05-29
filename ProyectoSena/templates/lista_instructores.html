@@ -1,9 +1,11 @@
 {% extends 'main/main.html' %}
 {% block titulo %}Listar Instructores{% endblock %}
 {% block contenido %}
+  
+  <h1>Lista Instructores</h1>
+
   <table>
 		<tr>
-      <th></th>
     	<th>Identida</th>
    		<th>Nombre</th>
    		<th>Apellido</th>
@@ -13,7 +15,6 @@
    	</tr>
 	  {% for l in rp %}
     <tr>
-      <td>{{l.persona.id}}</td>
 			<td>{{l.persona.documentoIdentidad}}</td>
 			<td>{{l.persona.nombres}}</td>
 			<td>{{l.persona.apellidos}}</td>

@@ -14,12 +14,6 @@
 <!-- BARRA DE NAVEGACIÓN -->
 <nav>
 	<ul>
-		<!--==================PROGRAMAS==================-->
-		<li><a href="{% url 'url_lista_programas' %}">Programas</a>
-			<ul>
-				<li><a href="{% url 'url_agregar_programa' %}">agregar</a></li>
-			</ul>
-		</li>
 		<!--==================FICHAS=====================-->
 		<li><a href="{% url 'url_lista_fichas' %}">Fichas</a>
 			<ul>
@@ -27,40 +21,29 @@
 				<li><a href="{% url 'url_agregar_persona_ficha' %}"> agregar persona ficha</a></li>
 			</ul>
 		</li>
+		<!--==================PERMISOS==================-->
+		<li><a href="{% url 'url_lista_permisos' %}">Permisos</a></li>
+		<!--==================PERSONAS==================-->
+		<li><a href="">Personas</a>
+			<ul>
+				<li><a href="{% url 'url_lista_aprendices' %}">Aprendices</a></li>
+				<li><a href="{% url 'url_agregar_vigilante' %}">Registrar Vigilante</a></li>
+				<li><a href="{% url 'url_agregar_instructor' %}">Registrar Instructor</a></li>
+				<li><a href="{% url 'url_agregar_aprendiz' %}">Registrar Aprendiz</a></li>
+				<li><a href="{% url 'url_agregar_aprendiz_excel' %}">Buscar Excel</a></li>
+				<li><a href="{% url 'url_registros_excel' %}">Cargar Excel</a></li>
+			</ul>
+		</li>
+		<!--==================PROGRAMAS==================-->
+		<li><a href="{% url 'url_lista_programas' %}">Programas</a>
+			<ul>
+				<li><a href="{% url 'url_agregar_programa' %}">agregar</a></li>
+			</ul>
+		</li>
 		<!--==================ROLES==================-->
 		<li><a href="{% url 'url_lista_roles' %}">Roles</a>
 			<ul>
 				<li><a href="{% url 'url_agregar_rol' %}">agregar</a></li>
-			</ul>
-		</li>
-		<!--==================PERMISOS==================-->
-		<li><a href="{% url 'url_lista_permisos' %}">Permisos</a></li>
-		<!--==================PERSONAS==================-->
-		<li> PERSONAS
-			<ul>
-				<!--==================APRENDICES==================-->
-				<li><a href="{% url 'url_lista_aprendices' %}">Aprendices</a>
-					<ul>
-						<li><a href="{% url 'url_agregar_aprendiz' %}">Registrar Aprendiz</a></li>
-						<li><a href="{% url 'url_agregar_aprendiz_excel' %}">Buscar Excel</a></li>
-						<li><a href="{% url 'url_registros_excel' %}">Cargar Excel</a></li>
-					</ul>
-				</li>
-
-				<!--==================INSTRUCTORES==================-->
-				<li><a href="{% url 'url_lista_instructores' %}">Instructores</a>
-					<ul>
-						<li><a href="{% url 'url_agregar_instructor' %}">Registrar Instructor</a></li>
-					</ul>
-				</li>
-				<!--==================VIGILANTES==================-->
-				<li><a href="{% url 'url_lista_vigilantes' %}">Vigilantes</a>
-					<ul>
-						<li><a href="{% url 'url_agregar_vigilante' %}">Registrar Vigilante</a></li>
-					</ul>
-				</li>
-				<!--==================ADMINISTRADORES=================-->
-				<li><a href="{% url 'url_agregar_admin' %}">Registrar Administrador</a></li>
 			</ul>
 		</li>
 		<!--==================USUARIOS==================-->

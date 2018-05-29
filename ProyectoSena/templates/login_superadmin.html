@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>LOGIN | ADMIN</title>
+	</head>
+	<body>
+		{% if info_enviada %}
+			{{ error }}
+		{% else %}
+			<form action="" method="POST">
+				<h2>INICIA SESION SUPER-USUARIO</h2>
+				{% csrf_token %}
+				{{loginf}}
+				<input type="submit" value="Entrar">
+			</form>
+			<h3>{{msj}}</h3>
+		{% endif %}
+	</body>
+</html>
+
