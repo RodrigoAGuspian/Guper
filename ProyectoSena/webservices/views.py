@@ -2,39 +2,41 @@ from AppSena.models import *
 from .serializer import *
 from rest_framework import viewsets
 
-#============== Tabla User De DJANGO ===========================
+#========================= USUARIO =============================
 class user_viewset(viewsets.ModelViewSet):
 	queryset = User.objects.all()
 	serializer_class =  user_serializer
 #===============================================================
-class permiso_viewset(viewsets.ModelViewSet):
-	queryset = Permiso.objects.all()
-	serializer_class =  permiso_serializer
 
+#========================= PERSONA =============================
 class persona_viewset(viewsets.ModelViewSet):
 	queryset = Persona.objects.all()
 	serializer_class =  persona_serializer
+#===============================================================
 
-class permiso_persona_viewset(viewsets.ModelViewSet):
+#==================== MODIFICAR PERFIL =========================
+class actualizar_perfil_viewset(viewsets.ModelViewSet):
+	queryset = Persona.objects.all()
+	serializer_class = actualizar_perfil_serializer
+#===============================================================
+
+#======================== VER PERMISOS =========================
+class ver_permisos_viewset(viewsets.ModelViewSet):
 	queryset = Permiso_persona.objects.all()
-	serializer_class =  permiso_persona_serializer
+	serializer_class = ver_permisos_serializer
+#===============================================================
 
-class rol_viewset(viewsets.ModelViewSet):
-	queryset = Rol.objects.all()
-	serializer_class =  rol_serializer
+#======================== SOLICITAR PERMISOS =========================
+class solicitar_permiso_viewset(viewsets.ModelViewSet):
+	queryset = Permiso.objects.all()
+	serializer_class = solicitar_permiso_serializer
+#===============================================================
 
-class rol_persona_viewset(viewsets.ModelViewSet):
-	queryset = Rol_persona.objects.all()
-	serializer_class =  rol_persona_serializer
 
-class programa_viewset(viewsets.ModelViewSet):
-	queryset = Programa.objects.all()
-	serializer_class =  programa_serializer
 
-class ficha_viewset(viewsets.ModelViewSet):
-	queryset = Ficha.objects.all()
-	serializer_class =  ficha_serializer
 
-class persona_ficha_viewset(viewsets.ModelViewSet):
-	queryset = Persona_ficha.objects.all()
-	serializer_class =  persona_ficha_serializer
+#======================== APRENDIZ PERMISOS =========================
+class aprendiz_permiso_viewset(viewsets.ModelViewSet):
+	queryset = Permiso_persona.objects.all()
+	serializer_class = aprendiz_permiso_serializer
+#===============================================================

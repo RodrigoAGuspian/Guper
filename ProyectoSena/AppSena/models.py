@@ -28,6 +28,7 @@ class Persona(models.Model):
 	nombres = models.CharField(max_length = 45)
 	apellidos = models.CharField(max_length = 45)
 	telefono = models.CharField(max_length = 10, null = True, blank = True)
+	imgPerfil = models.ImageField(upload_to = 'img_perfil', null=True, blank=True)
 	usuario = models.OneToOneField(User, on_delete = models.CASCADE)
 
 	def __str__(self):
@@ -55,9 +56,15 @@ class Permiso_persona(models.Model):
 
 #=======================ROL=======================#
 class Rol(models.Model):
-	rol = models.CharField(max_length = 20, unique = True)
+	roles = (
+			('APRENDIZ', 'APRENDIZ'),
+			('INSTRUCTOR','INSTRUCTOR'),
+			('ADMINISTRADOR','ADMINISTRADOR'), 
+			('VIGILANTE','VIGILANTE'),
+		)
+	rol = models.CharField(max_length = 20, unique = True, choices=roles)
 
-	def __str__(self):
+	def __str__ (self):
 		return self.rol
 #=================================================#
 
@@ -66,15 +73,14 @@ class Rol_persona(models.Model):
 	rol = models.ForeignKey(Rol, on_delete = models.CASCADE)
 	persona = models.ForeignKey(Persona, on_delete = models.CASCADE)
 
-
 	def __str__(self):
 		return self.persona.nombres+'_'+self.rol.rol
 #=================================================#
 
 #=====================PROGRAMA====================#
 class Programa(models.Model):
-	nombre = models.CharField(max_length = 100)
-	codigoPrograma = models.CharField(max_length = 50)
+	nombre = models.CharField(max_length = 100, unique = True)
+	abreviacion = models.CharField(max_length = 30)
 
 	def __str__(self):
 		return self.nombre
@@ -102,8 +108,7 @@ class Ficha(models.Model):
 class Persona_ficha(models.Model):
 	persona = models.ForeignKey(Persona, on_delete = models.CASCADE)
 	ficha = models.ForeignKey(Ficha, on_delete = models.CASCADE)
-	programa = models.ForeignKey(Programa, on_delete = models.CASCADE)
 
 	def __str__(self):
-		return self.persona.nombres+'_'+self.ficha.numeroFicha+'_'+self.programa.nombre
+		return self.persona.nombres+'_'+self.ficha.numeroFicha
 #=================================================# 
