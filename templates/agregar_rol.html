@@ -5,7 +5,7 @@
 	<form action="" method="POST" enctype="multipart/form-data">
 		{% csrf_token %}
 		{{ formulario.as_p }}
-		<input type="submit" value="Agregar">	
+		<input type="submit" value="Agregar" class="btn btn-info">	
 	</form>
 
 {% endblock %}

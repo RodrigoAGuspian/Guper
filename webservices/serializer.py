@@ -1,66 +1,45 @@
 from rest_framework import serializers
 from AppSena.models import *
-#============== Tabla User De DJANGO ===========================
 from django.contrib.auth.models import User
 
+#======================== USUARIO ===============================
 class user_serializer(serializers.ModelSerializer):
 	class Meta:
 		model  = User
-		fields = ('url','username',)
-#================================================================
-
-#======================= PERMISO ================================
-class permiso_serializer(serializers.HyperlinkedModelSerializer):
-	class Meta:
-		model  = Permiso
-		fields = ('url','motivo','solicitoPermisoPor','permisoPorHora','permisoPorDias','horaSalida','fecha',)
+		fields = ('url','username','email','password')
 #================================================================
 
 #======================= PERSONA ================================
-class persona_serializer(serializers.HyperlinkedModelSerializer):
+class persona_serializer(serializers.ModelSerializer):
 	class Meta:
 		model  = Persona
-		fields = ('url','documentoIdentidad','primerNombre','segundoNombre','primerApellido','segundoApellido','contacto','usuario',)
+		fields = ('url','documentoIdentidad','nombres','apellidos','telefono','imgPerfil')
 #=================================================================
 
-#======================= PERMISO_PERSONA =========================
-class permiso_persona_serializer(serializers.HyperlinkedModelSerializer):
+#=================== ACTUALIZAR PERFIL ===========================
+class actualizar_perfil_serializer(serializers.HyperlinkedModelSerializer):
 	class Meta:
-		model  = Permiso_persona
-		fields = ('url','estado','instructor','vigilante','permiso','persona',)
-#==================================================================
-
-#=========================== ROL ==================================
-class rol_serializer(serializers.HyperlinkedModelSerializer):
-	class Meta:
-		model  = Rol
-		fields = ('url','rol',)
-#===================================================================
-
-#=========================== ROL_PERSONA ===========================
-class rol_persona_serializer(serializers.HyperlinkedModelSerializer):
-	class Meta:
-		model  = Rol_persona
-		fields = ('url','rol','persona',)
+		model = Persona
+		fields =('url','documentoIdentidad','nombres','apellidos','telefono','usuario')
 #=================================================================
 
-#=========================== PROGRAMA ============================
-class programa_serializer(serializers.HyperlinkedModelSerializer):
+#======================== VER PERMISOS ===========================
+class ver_permisos_serializer(serializers.HyperlinkedModelSerializer):
 	class Meta:
-		model  = Programa
-		fields = ('url','nombre','codigoPrograma',)
-#==================================================================
+		model = Permiso_persona
+		fields =('estado','instructor','vigilante','permiso_id','persona_id')
+#=================================================================
 
-#=========================== FICHA ================================
-class ficha_serializer(serializers.HyperlinkedModelSerializer):
+#===================== SOLICITAR PERMISO ===========================
+class solicitar_permiso_serializer(serializers.HyperlinkedModelSerializer):
 	class Meta:
-		model  = Ficha
-		fields = ('url','numeroFicha','jornada','ambiente','lider','fechaFinEtapaLectiva','programa',)
-#==================================================================
+		model = Permiso
+		fields =('url','motivo','solicitoPermisoPor','permisoPorHora','permisoPorDias','horaSalida','fecha')
+#=================================================================
 
-#=========================== PERSONA_FICHA ========================
-class persona_ficha_serializer(serializers.HyperlinkedModelSerializer):
+#===================== APRENDIZ_PERMISO ===========================
+class aprendiz_permiso_serializer(serializers.HyperlinkedModelSerializer):
 	class Meta:
-		model  = Persona_ficha
-		fields = ('url','persona','ficha','programa',)
-#==================================================================
+		model = Permiso_persona
+		fields =('url','estado','instructor','vigilante','permiso','persona')
+#=================================================================
